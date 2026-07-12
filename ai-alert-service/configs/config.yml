@@ -127,7 +127,7 @@ decision_engine:
   enabled: true
   provider: "qwen"
   base_url: "https://dashscope.aliyuncs.com/compatible-mode/v1"
-  model: "qwen-max"
+  model: "qwen3.7-plus"
   api_key: "sk-f550dad4e7b94842aa10bc29ef7cd5cc"
   temperature: 0.2
   timeout_seconds: 10
