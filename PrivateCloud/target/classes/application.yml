@@ -1,0 +1,72 @@
+server:
+  port: 8081
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/private_cloud?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
+    username: root
+    password: root0627
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+    properties:
+      hibernate:
+        jdbc:
+          time_zone: Asia/Shanghai
+  mail:
+    host: ${MAIL_HOST:}
+    port: ${MAIL_PORT:587}
+    username: ${MAIL_USERNAME:}
+    password: ${MAIL_PASSWORD:}
+    protocol: smtp
+    default-encoding: UTF-8
+    properties:
+      mail:
+        smtp:
+          auth: ${MAIL_SMTP_AUTH:true}
+          starttls:
+            enable: ${MAIL_SMTP_STARTTLS_ENABLE:true}
+
+influxdb:
+  url: http://localhost:8086
+  token: FqEzTQQWE8Ebup-gVeDKJeCzoP-O7nvu3KknpcvmEvSslUVUZF_ihNRnFd8FuLnZNgLD6j9WHS4c-wFx2xsbNQ==
+  org: monitor-org
+  bucket: metrics2
+
+alert:
+  ingest-key: sk-dfe28de1d1f2405495cc813ca7ed1caf
+  notification:
+    scheduler-delay-ms: 60000
+    mail-from: ${MAIL_FROM:}
+    mail-from-name: ${MAIL_FROM_NAME:PrivateCloud Monitor}
+    imap:
+      host: ${MAIL_IMAP_HOST:}
+      port: ${MAIL_IMAP_PORT:993}
+      starttls:
+        enable: ${MAIL_IMAP_STARTTLS_ENABLE:false}
+      ssl:
+        enable: ${MAIL_IMAP_SSL_ENABLE:true}
+    crypto-key: ${ALERT_NOTIFICATION_CRYPTO_KEY:pc-notify-change-this-key}
+  agent:
+    enabled: true
+    base-url: https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions
+    api-key: "sk-f550dad4e7b94842aa10bc29ef7cd5cc"
+    model: qwen-max
+    temperature: 0.2
+    connect-timeout-ms: 5000
+    read-timeout-ms: 20000
+    max-context-chars: 2000
+  feedback-agent:
+    enabled: true
+    base-url: ${ALERT_FEEDBACK_AGENT_BASE_URL:https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions}
+    api-key: ${ALERT_FEEDBACK_AGENT_API_KEY:sk-f550dad4e7b94842aa10bc29ef7cd5cc}
+    model: ${ALERT_FEEDBACK_AGENT_MODEL:qwen-plus}
+    temperature: ${ALERT_FEEDBACK_AGENT_TEMPERATURE:0.0}
+    connect-timeout-ms: ${ALERT_FEEDBACK_AGENT_CONNECT_TIMEOUT_MS:5000}
+    read-timeout-ms: ${ALERT_FEEDBACK_AGENT_READ_TIMEOUT_MS:20000}
+
+logging:
+  level:
+    com.privatecloud.service.AlertFeedbackAgentService: INFO
+    com.privatecloud.service.AlertNotificationService: INFO

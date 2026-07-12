@@ -1,0 +1,575 @@
+<mxfile host="app.diagrams.net" agent="Codex" compressed="false" pages="6">
+  <diagram id="page-42" name="图4-2 监控数据采集与入库流程图">
+    <mxGraphModel dx="2200" dy="1600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2400" pageHeight="1700" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2" value="监控对象与采集域" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f7fbff;strokeColor=#6c8ebf;strokeWidth=2;verticalAlign=top;align=left;spacingTop=12;spacingLeft=12;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry x="70" y="70" width="520" height="1380" as="geometry" />
+        </mxCell>
+        <mxCell id="3" value="统一接收与标准化域" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fffaf2;strokeColor=#d79b00;strokeWidth=2;verticalAlign=top;align=left;spacingTop=12;spacingLeft=12;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry x="670" y="70" width="760" height="1380" as="geometry" />
+        </mxCell>
+        <mxCell id="4" value="存储与使用域" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8fff6;strokeColor=#82b366;strokeWidth=2;verticalAlign=top;align=left;spacingTop=12;spacingLeft=12;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry x="1510" y="70" width="760" height="1380" as="geometry" />
+        </mxCell>
+        <mxCell id="5" value="服务器节点 CPU / 内存 / 磁盘 / 网络" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry x="170" y="180" width="300" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="6" value="虚拟机实例 主机级与服务级指标" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry x="170" y="330" width="300" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="7" value="容器实例 资源与进程指标" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry x="170" y="480" width="300" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="8" value="服务与进程对象 状态、占用与连通性" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry x="170" y="630" width="300" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="9" value="Telegraf 采集代理 按对象采集并统一上报" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry x="150" y="860" width="340" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="10" value="统一指标报文 measurement / tag / field / timestamp" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=2;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry x="770" y="180" width="360" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="11" value="Flask 数据接收接口 /metrics" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;strokeWidth=2;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry x="780" y="390" width="340" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="12" value="标准化解析与标签映射 统一字段命名、角色、主机标识" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;strokeWidth=2;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry x="740" y="560" width="420" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="13" value="数据校验与异常过滤 剔除非法字段，保留有效点位" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;strokeWidth=2;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry x="790" y="760" width="320" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="14" value="InfluxDB 时序指标存储" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;fillColor=#fff2cc;strokeColor=#d79b00;strokeWidth=2;size=18;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry x="1810" y="320" width="220" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="15" value="Spring Boot 监控查询接口 按对象、指标、时间范围读取" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry x="1690" y="610" width="460" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="16" value="前端监控展示 总览、基础监控、历史查询" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry x="1710" y="820" width="420" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="17" value="智能告警分析服务 读取近时间窗口指标进行异常分析" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=2;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry x="1710" y="1040" width="420" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="18" value="该图重点说明多源监控数据如何经由 Telegraf 采集、Flask 接收与标准化处理后统一写入 InfluxDB，并同时为前端展示和告警分析提供数据基础。" style="shape=note;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;strokeWidth=2;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry x="760" y="1220" width="860" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="5" target="9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="6" target="9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="7" target="9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="8" target="9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="9" target="10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="10" target="11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="25" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="11" target="12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="26" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="12" target="13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="13" target="14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="28" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="14" target="15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="29" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="15" target="16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="30" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="14" target="17">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="page-44" name="图4-4 告警检测与生成流程图">
+    <mxGraphModel dx="2200" dy="1600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2400" pageHeight="1700" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2" value="输入与规则域" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f7fbff;strokeColor=#6c8ebf;strokeWidth=2;verticalAlign=top;align=left;spacingTop=12;spacingLeft=12;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry x="70" y="70" width="450" height="1380" as="geometry" />
+        </mxCell>
+        <mxCell id="3" value="检测与融合域" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fffaf2;strokeColor=#d79b00;strokeWidth=2;verticalAlign=top;align=left;spacingTop=12;spacingLeft=12;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry x="580" y="70" width="900" height="1380" as="geometry" />
+        </mxCell>
+        <mxCell id="4" value="控制与输出域" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8fff6;strokeColor=#82b366;strokeWidth=2;verticalAlign=top;align=left;spacingTop=12;spacingLeft=12;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry x="1540" y="70" width="690" height="1380" as="geometry" />
+        </mxCell>
+        <mxCell id="5" value="运行期监控对象 主机 / 虚拟机 / 容器" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry x="140" y="180" width="300" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="6" value="静态告警规则 阈值、等级、启停状态" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry x="140" y="340" width="300" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="7" value="近时间窗口监控数据 来自 InfluxDB" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry x="140" y="500" width="300" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="8" value="静态阈值检测" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry x="690" y="170" width="250" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="9" value="检测器1：统计分布突发检测器" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;strokeWidth=2;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry x="640" y="360" width="330" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="10" value="检测器2：持续异常检测器" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;strokeWidth=2;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry x="640" y="520" width="330" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="11" value="检测器3：趋势检测器" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;strokeWidth=2;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry x="640" y="680" width="330" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="12" value="加权融合决策 输出 final score 与动态等级" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=2;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry x="1060" y="500" width="310" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="13" value="异常进程识别 辅助定位异常来源" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;strokeWidth=2;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry x="1040" y="760" width="350" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="14" value="状态机控制 升级、维持、降级与恢复" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=2;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry x="1670" y="320" width="300" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="15" value="去重与抑制 减少重复告警与短时抖动" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry x="1670" y="500" width="300" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="16" value="告警历史记录 写入规则、值、原因、上下文" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry x="1650" y="700" width="340" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="17" value="关键告警补充说明 增强记录可读性" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;strokeWidth=2;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry x="1650" y="910" width="340" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="18" value="通知触发 邮件 / 页面消息" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=2;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry x="1690" y="1090" width="260" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="19" value="该图重点突出动态侧的“三检测器 + 融合决策”结构，并说明其结果还需经过状态机、去重抑制和历史记录管理后，才形成最终告警输出。" style="shape=note;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;strokeWidth=2;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry x="680" y="1240" width="940" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="5" target="8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="6" target="8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="7" target="8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="7" target="9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="7" target="10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="25" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="7" target="11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="26" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="9" target="12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="10" target="12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="28" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="11" target="12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="29" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="7" target="13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="30" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="8" target="14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="31" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="12" target="14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="32" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="13" target="14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="33" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="14" target="15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="15" target="16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="35" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="16" target="17">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="36" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="16" target="18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="page-45" name="图4-5 告警通知与反馈流程图">
+    <mxGraphModel dx="2304" dy="1544" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2400" pageHeight="1700" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f7fbff;strokeColor=#6c8ebf;strokeWidth=2;verticalAlign=top;align=left;spacingTop=12;spacingLeft=12;fontSize=19;" value="通知生成域" vertex="1">
+          <mxGeometry height="1380" width="520" x="70" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fffaf2;strokeColor=#d79b00;strokeWidth=2;verticalAlign=top;align=left;spacingTop=12;spacingLeft=12;fontSize=19;" value="用户交互域" vertex="1">
+          <mxGeometry height="1380" width="420" x="650" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#faf7ff;strokeColor=#9673a6;strokeWidth=2;verticalAlign=top;align=left;spacingTop=12;spacingLeft=12;fontSize=19;" value="反馈处理域" vertex="1">
+          <mxGeometry height="1380" width="620" x="1130" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="5" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8fff6;strokeColor=#82b366;strokeWidth=2;verticalAlign=top;align=left;spacingTop=12;spacingLeft=12;fontSize=19;" value="优化回流域" vertex="1">
+          <mxGeometry height="1380" width="420" x="1810" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;fontSize=19;" value="告警历史记录 生成告警详情与上下文" vertex="1">
+          <mxGeometry height="90" width="330" x="160" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=2;fontSize=19;" value="批次与短码映射 建立邮件关联关系" vertex="1">
+          <mxGeometry height="90" width="330" x="160" y="350" as="geometry" />
+        </mxCell>
+        <mxCell id="8" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;fontSize=19;" value="通知调度服务 组织邮件摘要与收件人" vertex="1">
+          <mxGeometry height="90" width="330" x="160" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="9" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;fillColor=#ffe6cc;strokeColor=#d79b00;strokeWidth=2;size=18;fontSize=19;" value="SMTP 发送通知邮件" vertex="1">
+          <mxGeometry height="90" width="250" x="200" y="720" as="geometry" />
+        </mxCell>
+        <mxCell id="10" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=2;fontSize=19;" value="运维用户 查看邮件 / 页面消息" vertex="1">
+          <mxGeometry height="90" width="280" x="720" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="11" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=2;fontSize=19;" value="用户回复邮件 有效告警 / 误报 / 其他说明" vertex="1">
+          <mxGeometry height="90" width="320" x="700" y="650" as="geometry" />
+        </mxCell>
+        <mxCell id="12" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;fillColor=#fff2cc;strokeColor=#d79b00;strokeWidth=2;size=18;fontSize=19;" value="IMAP 轮询反馈邮件" vertex="1">
+          <mxGeometry height="90" width="260" x="1300" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="13" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=2;fontSize=19;" value="批次编号与短码关联 定位具体告警记录" vertex="1">
+          <mxGeometry height="90" width="380" x="1240" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="14" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;strokeWidth=2;fontSize=19;" value="规则提取 误报、正常波动等明确表达" vertex="1">
+          <mxGeometry height="90" width="380" x="1240" y="610" as="geometry" />
+        </mxCell>
+        <mxCell id="15" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;strokeWidth=2;fontSize=19;" value="复杂文本辅助识别 结合上下文判断反馈含义" vertex="1">
+          <mxGeometry height="90" width="380" x="1240" y="800" as="geometry" />
+        </mxCell>
+        <mxCell id="16" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;fontSize=19;" value="反馈结果写回 更新反馈状态与说明" vertex="1">
+          <mxGeometry height="90" width="320" x="1270" y="1010" as="geometry" />
+        </mxCell>
+        <mxCell id="17" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;fontSize=19;" value="反馈统计汇总 误报率、覆盖率、命中率" vertex="1">
+          <mxGeometry height="90" width="250" x="1890" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="18" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;fontSize=19;" value="参数优化 调整阈值、权重或基线" vertex="1">
+          <mxGeometry height="90" width="250" x="1890" y="690" as="geometry" />
+        </mxCell>
+        <mxCell id="19" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=2;fontSize=19;" value="优化结果回流 作用于后续告警判定" vertex="1">
+          <mxGeometry height="90" width="250" x="1890" y="960" as="geometry" />
+        </mxCell>
+        <mxCell id="20" parent="1" style="shape=note;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;strokeWidth=2;fontSize=19;" value="该图强调通知、邮件反馈、复杂文本辅助识别与参数优化之间的闭环关系，是系统从“发出告警”走向“利用反馈优化告警”的关键过程。" vertex="1">
+          <mxGeometry height="150" width="790" x="1180" y="1220" as="geometry" />
+        </mxCell>
+        <mxCell id="21" edge="1" parent="1" source="6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" target="7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="22" edge="1" parent="1" source="7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" target="8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="23" edge="1" parent="1" source="8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" target="9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="24" edge="1" parent="1" source="9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" target="10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="25" edge="1" parent="1" source="10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" target="11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="26" edge="1" parent="1" source="11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" target="12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="27" edge="1" parent="1" source="12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" target="13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="28" edge="1" parent="1" source="13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" target="14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="29" edge="1" parent="1" source="14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" target="15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="30" edge="1" parent="1" source="15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" target="16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="31" edge="1" parent="1" source="16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" target="17">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="32" edge="1" parent="1" source="17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" target="18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="33" edge="1" parent="1" source="18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" target="19">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="page-47" name="图4-7 业务数据库核心表关系图">
+    <mxGraphModel dx="2200" dy="1600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2400" pageHeight="1700" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2" value="业务数据库核心实体关系" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f7f7f7;strokeColor=#666666;strokeWidth=2;verticalAlign=top;align=left;spacingTop=12;spacingLeft=12;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry x="60" y="60" width="2260" height="1480" as="geometry" />
+        </mxCell>
+        <mxCell id="3" value="User - id - username - enabled" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry x="120" y="200" width="240" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="4" value="Role - id - name" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;strokeWidth=2;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry x="470" y="120" width="220" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="5" value="Permission - id - code - description" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=2;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry x="820" y="120" width="260" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="6" value="MonitorTarget - host - role - queryHost - enabled" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry x="120" y="600" width="300" height="210" as="geometry" />
+        </mxCell>
+        <mxCell id="7" value="MonitorTargetChange - host - role - changedBy - changedAt" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=2;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry x="490" y="610" width="320" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="8" value="AlertRule - ruleName - metricName - thresholdMin / Max - level - enabled" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;strokeWidth=2;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry x="930" y="520" width="320" height="230" as="geometry" />
+        </mxCell>
+        <mxCell id="9" value="AlertRuleAssignment - ruleId - host - role" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=2;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry x="1320" y="560" width="260" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="10" value="AlertHistory - host - ruleName - metricName - level / status - reason / recommendation - value / thresholdValue - feedbackStatus - contextJson" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;strokeWidth=2;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry x="1710" y="420" width="420" height="320" as="geometry" />
+        </mxCell>
+        <mxCell id="11" value="NotificationSettings - emailEnabled - recipientEmail - smtpHost / smtpPort - intervalMinutes" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry x="920" y="980" width="360" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="12" value="AlertFeedbackBatchItem - batchId - shortCode - alertHistoryId - sourceMessageId" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=2;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry x="1410" y="1010" width="360" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="13" value="该图采用 ER 风格展示系统业务数据库中的核心表及其关系，用于支撑用户权限、监控对象、规则管理、告警历史、通知与反馈闭环。" style="shape=note;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;strokeWidth=2;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry x="170" y="1280" width="980" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="3" target="4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="4" target="5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;dashed=1;" edge="1" parent="1" source="3" target="6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="6" target="7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="8" target="9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="9" target="10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="8" target="10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="11" target="12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="12" target="10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="page-48" name="图4-8 时序数据库数据模型图">
+    <mxGraphModel dx="2200" dy="1600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2400" pageHeight="1700" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2" value="InfluxDB 时序数据组织模型" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f7f7f7;strokeColor=#666666;strokeWidth=2;verticalAlign=top;align=left;spacingTop=12;spacingLeft=12;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry x="60" y="60" width="2260" height="1480" as="geometry" />
+        </mxCell>
+        <mxCell id="3" value="InfluxDB Bucket 统一时序指标存储" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;fillColor=#fff2cc;strokeColor=#d79b00;strokeWidth=2;size=18;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry x="1040" y="300" width="300" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="4" value="measurement: cpu tags: host, role fields: usage_percent, usage_user, usage_system" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry x="150" y="180" width="420" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="5" value="measurement: mem tags: host, role fields: used_percent, available" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry x="150" y="380" width="420" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="6" value="measurement: disk tags: host, path, role fields: used_percent, total, used" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry x="150" y="570" width="420" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="7" value="measurement: net tags: host, interface, role fields: bytes_recv, bytes_sent" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry x="150" y="770" width="420" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="8" value="measurement: process tags: host, process, role fields: cpu_usage_percent, memory_usage" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry x="150" y="980" width="420" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="9" value="统一标签维度 host / role / query_host path / interface / process" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry x="870" y="560" width="250" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="10" value="统一时间戳 按采集时刻写入" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry x="1240" y="560" width="220" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="11" value="Flux 查询 时间范围过滤 对象过滤 窗口聚合" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;strokeWidth=2;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry x="1640" y="330" width="280" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="12" value="Spring Boot 查询接口 总览、基础监控、历史查询" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry x="1650" y="610" width="300" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="13" value="智能告警分析服务 近时间窗口数据读取" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=2;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry x="1640" y="860" width="320" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="14" value="该图重点说明 InfluxDB 中 measurement、tag、field 和 timestamp 的组织方式，以及 Flux 查询如何同时服务于监控展示与告警分析。" style="shape=note;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;strokeWidth=2;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry x="760" y="1210" width="1040" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="4" target="3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="5" target="3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="6" target="3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="7" target="3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="8" target="3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="9" target="3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="10" target="3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="3" target="11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="11" target="12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="11" target="13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="page-49" name="图4-9 系统接口交互图">
+    <mxGraphModel dx="2200" dy="1600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2400" pageHeight="1700" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2" value="接口消费者" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f7fbff;strokeColor=#6c8ebf;strokeWidth=2;verticalAlign=top;align=left;spacingTop=12;spacingLeft=12;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry x="80" y="100" width="420" height="1320" as="geometry" />
+        </mxCell>
+        <mxCell id="3" value="接口提供者与服务" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fffaf2;strokeColor=#d79b00;strokeWidth=2;verticalAlign=top;align=left;spacingTop=12;spacingLeft=12;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry x="600" y="100" width="980" height="1320" as="geometry" />
+        </mxCell>
+        <mxCell id="4" value="数据库与外部资源域" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8fff6;strokeColor=#82b366;strokeWidth=2;verticalAlign=top;align=left;spacingTop=12;spacingLeft=12;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry x="1690" y="100" width="520" height="1320" as="geometry" />
+        </mxCell>
+        <mxCell id="5" value="浏览器 / 前端页面" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry x="170" y="220" width="250" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="6" value="Telegraf 采集端" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry x="170" y="480" width="250" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="7" value="智能告警分析服务" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=2;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry x="170" y="760" width="250" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="8" value="认证接口 /api/auth/login /api/auth/me" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry x="700" y="180" width="300" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="9" value="监控对象接口 /api/monitor-targets" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry x="700" y="380" width="300" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="10" value="监控查询接口 /api/cpu / memory / network ..." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry x="700" y="560" width="360" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="11" value="告警规则接口 /api/alert-rules" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;strokeWidth=2;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry x="1120" y="180" width="300" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="12" value="告警历史与反馈接口 /api/alert-history /api/alert-history/{id}/feedback" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;strokeWidth=2;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry x="1120" y="420" width="340" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="13" value="数据接收接口 /metrics" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry x="740" y="840" width="220" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="14" value="告警写入接口 /api/alert-history/ingest" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=2;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry x="1080" y="820" width="360" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="15" value="通知与反馈处理流程 邮件发送、批次映射、反馈更新" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;strokeWidth=2;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry x="860" y="1080" width="460" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="16" value="MySQL" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;size=18;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry x="1830" y="320" width="220" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="17" value="InfluxDB" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;fillColor=#fff2cc;strokeColor=#d79b00;strokeWidth=2;size=18;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry x="1830" y="610" width="220" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="18" value="SMTP / IMAP" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;fillColor=#fff2cc;strokeColor=#d79b00;strokeWidth=2;size=18;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry x="1830" y="980" width="220" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="19" value="该图从接口视角说明前端、采集端和智能分析服务分别如何访问后端接口，并进一步与数据库和邮件资源形成完整交互链路。" style="shape=note;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;strokeWidth=2;fontSize=19;" vertex="1" parent="1">
+          <mxGeometry x="760" y="1270" width="980" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="5" target="8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="5" target="9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="5" target="10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="5" target="11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="5" target="12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="25" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="6" target="13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="26" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="7" target="14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="8" target="16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="28" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="9" target="16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="29" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="11" target="16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="30" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="12" target="16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="31" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="15" target="16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="32" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="10" target="17">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="33" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="13" target="17">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="14" target="16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="35" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="7" target="17">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="36" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=2;" edge="1" parent="1" source="15" target="18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

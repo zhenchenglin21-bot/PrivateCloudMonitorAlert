@@ -1,0 +1,207 @@
+influx:
+  url: "http://localhost:8086"
+  token: "FqEzTQQWE8Ebup-gVeDKJeCzoP-O7nvu3KknpcvmEvSslUVUZF_ihNRnFd8FuLnZNgLD6j9WHS4c-wFx2xsbNQ=="
+  org: "monitor-org"
+  bucket: "metrics2"
+
+rule_name: "AI Intelligent Alert"
+
+model:
+  window_size: 12
+  features: ["cpu", "mem", "disk", "net_in", "net_out"]
+  lstm_units: 64
+  epochs: 10
+  batch_size: 32
+  model_path: "models/lstm_model.h5"
+
+zscore:
+  threshold: 2.5
+
+fixed_thresholds:
+  cpu:
+    upper: 90
+    severity: "critical"
+  mem:
+    upper: 85
+    severity: "alert"
+  disk:
+    upper: 85
+    severity: "alert"
+
+static_severity_policy:
+  # CPU最关键：一旦静态越阈，默认直接严重
+  cpu:
+    base: critical
+    immediate_critical: true
+    alert_ratio: 0.00
+    critical_ratio: 0.00
+  # 异常进程CPU同样高优先级
+  abnormal_process_cpu:
+    base: alert
+    alert_ratio: 0.00
+    critical_ratio: 0.10
+  # 内存次高，轻微超限先警报，明显超限再严重
+  mem:
+    base: alert
+    alert_ratio: 0.00
+    critical_ratio: 0.20
+  abnormal_process_mem:
+    base: alert
+    alert_ratio: 0.00
+    critical_ratio: 0.25
+  # 存储较关键，接近打满风险较高
+  disk:
+    base: alert
+    alert_ratio: 0.00
+    critical_ratio: 0.15
+  # 网络按业务场景波动较大，默认更保守
+  net_in:
+    base: warning
+    alert_ratio: 0.20
+    critical_ratio: 0.60
+  net_out:
+    base: warning
+    alert_ratio: 0.20
+    critical_ratio: 0.60
+
+dynamic_threshold:
+  enabled: true
+  ema_alpha: 0.2
+  warning_k: 2.0
+  alert_k: 3.0
+  warning_k_min: 1.2
+  warning_k_max: 4.0
+  alert_k_min: 1.8
+  alert_k_max: 5.0
+  trend_beta: 0.15
+  trend_beta_min: 0.0
+  trend_beta_max: 0.8
+  trend_cap_sigma: 3.0
+  trend_cap_abs: 2.0
+  std_floor_abs: 1.0
+  std_floor_ratio: 0.03
+  critical_margin_pct: 0.3
+  window_points: 30
+  sustained_window_points: 8
+  warning_sustained_hits: 4
+  alert_sustained_hits: 6
+  sustained_baseline_k: 0.6
+  sustained_required_hits: 5
+  absolute_load_floor:
+    cpu: 85
+    mem: 85
+    disk: 90
+  absolute_load_full:
+    cpu: 95
+    mem: 95
+    disk: 97
+  trend_window_points: 12
+  trend_sigma_min: 0.05
+  trend_sigma_full: 0.35
+  trend_r2_min: 0.2
+  trend_breach_score: 0.55
+  spike_critical_margin: 0.8
+  final_score_warning: 0.32
+  final_score_alert: 0.58
+  final_score_critical: 0.82
+  detector_weights:
+    spike: 0.40
+    sustained: 0.40
+    trend: 0.20
+  trend_sigma_multiplier: 1.0
+  min_trend_delta: 0.0
+
+prediction:
+  enabled: false
+  error_threshold: 10.0
+  multiplier: 2.5
+
+process_detection:
+  enabled: true
+  fields: ["cpu_usage_percent", "memory_usage"]
+  top_candidates: 5
+  min_points: 8
+  window_points: 12
+
+decision_engine:
+  enabled: true
+  provider: "qwen"
+  base_url: "https://dashscope.aliyuncs.com/compatible-mode/v1"
+  model: "qwen-max"
+  api_key: "sk-f550dad4e7b94842aa10bc29ef7cd5cc"
+  temperature: 0.2
+  timeout_seconds: 10
+  min_confidence: 0.35
+  confidence_divisor: 2.5
+
+feedback_learning:
+  enabled: true
+  summary_path: "/api/alert-history/feedback-summary"
+  timeout_seconds: 5
+  min_feedback_samples: 20
+  feedback_cycle_size: 20
+  max_adjustment_rounds: 6
+  imbalance_threshold: 0.10
+  fixed_offset_step: 0.03
+  max_fixed_offset_pct: 0.20
+  dynamic_k_up_step: 0.08
+  dynamic_k_down_step: 0.04
+  dynamic_k_adjustment_limit: 1.00
+  trend_beta_step: 0.03
+  trend_beta_adjustment_limit: 0.20
+  trend_beta_false_rate: 0.75
+  trend_beta_effective_rate: 0.75
+  confidence_step: 0.03
+  detector_weight_step: 0.04
+  detector_weight_adjustment_limit: 0.25
+  sustained_hits_step: 1.0
+  sustained_hits_adjustment_limit: 4.0
+  trend_sigma_step: 0.03
+  trend_sigma_adjustment_limit: 0.25
+
+state_machine:
+  static_warning_hits: 1
+  static_alert_hits: 1
+  static_critical_hits: 2
+  warning_to_alert_hits: 2
+  recover_normals: 3
+  critical_margin_pct: 0.3
+  dynamic_warning_hits: 1
+  dynamic_alert_hits: 2
+  dynamic_critical_hits: 3
+  dynamic_recover_alert_hits: 2
+  dynamic_recover_warning_hits: 2
+  dynamic_recover_normal_hits: 3
+
+dedup:
+  suppression_seconds: 300
+
+alert:
+  interval_seconds: 30
+  train_time: "02:00"
+  history_minutes: 5
+  min_points: 12
+
+notification:
+  email:
+    enabled: false
+    smtp_host: "smtp.example.com"
+    smtp_port: 465
+    use_ssl: true
+    username: ""
+    password: ""
+    from: "alert@example.com"
+    to:
+      - "ops@example.com"
+
+output:
+  enable_stdout: true
+  enable_file: false
+  file_path: "data/alerts.log"
+
+backend:
+  url: "http://localhost:8081"
+  ingest_path: "/api/alert-history/ingest"
+  rules_path: "/api/alert-rules/runtime"
+  targets_path: "/api/monitor-targets/runtime"
+  api_key: "sk-dfe28de1d1f2405495cc813ca7ed1caf"
