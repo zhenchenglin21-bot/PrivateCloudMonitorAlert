@@ -51,7 +51,7 @@ alert:
   agent:
     enabled: true
     base-url: https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions
-    api-key: "sk-f550dad4e7b94842aa10bc29ef7cd5cc"
+    api-key: "sk-ws-H.EDMLREH.AYKo.MEQCIDRbMRArIL4kGw9dkO5z6aIPnHShGkTvZSo4II9smiNeAiBPPszbB1IO2XwzxqbPVD0-CdE4mIFarm_Z6kj37hDlXw"
     model: qwen3.7-plus
     temperature: 0.2
     connect-timeout-ms: 5000
@@ -60,8 +60,8 @@ alert:
   feedback-agent:
     enabled: true
     base-url: ${ALERT_FEEDBACK_AGENT_BASE_URL:https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions}
-    api-key: ${ALERT_FEEDBACK_AGENT_API_KEY:sk-f550dad4e7b94842aa10bc29ef7cd5cc}
-    model: ${ALERT_FEEDBACK_AGENT_MODEL:qwen-plus}
+    api-key: ${ALERT_FEEDBACK_AGENT_API_KEY:sk-ws-H.EDMLREH.AYKo.MEQCIDRbMRArIL4kGw9dkO5z6aIPnHShGkTvZSo4II9smiNeAiBPPszbB1IO2XwzxqbPVD0-CdE4mIFarm_Z6kj37hDlXw}
+    model: ${ALERT_FEEDBACK_AGENT_MODEL:qwen3.7-plus}
     temperature: ${ALERT_FEEDBACK_AGENT_TEMPERATURE:0.0}
     connect-timeout-ms: ${ALERT_FEEDBACK_AGENT_CONNECT_TIMEOUT_MS:5000}
     read-timeout-ms: ${ALERT_FEEDBACK_AGENT_READ_TIMEOUT_MS:20000}

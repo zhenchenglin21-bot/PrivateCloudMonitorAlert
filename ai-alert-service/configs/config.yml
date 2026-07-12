@@ -128,7 +128,11 @@ decision_engine:
   provider: "qwen"
   base_url: "https://dashscope.aliyuncs.com/compatible-mode/v1"
   model: "qwen3.7-plus"
+<<<<<<< HEAD
   api_key: "sk-f550dad4e7b94842aa10bc29ef7cd5cc"
+=======
+  api_key: "sk-ws-H.EDMLREH.AYKo.MEQCIDRbMRArIL4kGw9dkO5z6aIPnHShGkTvZSo4II9smiNeAiBPPszbB1IO2XwzxqbPVD0-CdE4mIFarm_Z6kj37hDlXw"
+>>>>>>> cc138a5 (更新说明2)
   temperature: 0.2
   timeout_seconds: 10
   min_confidence: 0.35
