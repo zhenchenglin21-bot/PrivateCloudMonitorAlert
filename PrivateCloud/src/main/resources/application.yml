@@ -50,7 +50,7 @@ alert:
     crypto-key: ${ALERT_NOTIFICATION_CRYPTO_KEY:pc-notify-change-this-key}
   agent:
     enabled: true
-    base-url: https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions
+    base-url: https://dashscope.aliyuncs.com/compatible-mode
     api-key: "sk-ws-H.EDMLREH.AYKo.MEQCIDRbMRArIL4kGw9dkO5z6aIPnHShGkTvZSo4II9smiNeAiBPPszbB1IO2XwzxqbPVD0-CdE4mIFarm_Z6kj37hDlXw"
     model: qwen3.7-plus
     temperature: 0.2
@@ -59,7 +59,7 @@ alert:
     max-context-chars: 2000
   feedback-agent:
     enabled: true
-    base-url: ${ALERT_FEEDBACK_AGENT_BASE_URL:https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions}
+    base-url: ${ALERT_FEEDBACK_AGENT_BASE_URL:https://dashscope.aliyuncs.com/compatible-mode}
     api-key: ${ALERT_FEEDBACK_AGENT_API_KEY:sk-ws-H.EDMLREH.AYKo.MEQCIDRbMRArIL4kGw9dkO5z6aIPnHShGkTvZSo4II9smiNeAiBPPszbB1IO2XwzxqbPVD0-CdE4mIFarm_Z6kj37hDlXw}
     model: ${ALERT_FEEDBACK_AGENT_MODEL:qwen3.7-plus}
     temperature: ${ALERT_FEEDBACK_AGENT_TEMPERATURE:0.0}
