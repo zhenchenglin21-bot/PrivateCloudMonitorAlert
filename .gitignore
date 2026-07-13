@@ -1,0 +1,28 @@
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# Java
+**/target/
+*.class
+*.jar
+
+# Python
+**/__pycache__/
+*.pyc
+.venv/
+
+# Frontend
+**/node_modules/
+**/dist/
+**/.next/
+
+# Docs / diagrams
+docs/
+*.drawio
+
+# Runtime / model artifacts
+ai-alert-service/models/*.h5
+ai-alert-service/data/
+*.log
